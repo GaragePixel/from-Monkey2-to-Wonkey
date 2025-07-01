@@ -56,3 +56,34 @@ That's not bad for a single-argument version. We can also create a version for a
 
 In the good ol'days, we had to declare the type during the function call.
 Now, we extract the type **after** the function call. This strips the variables of their type and allows us to precede the variable with a nice label, which, in this case, doesn't matter, since the order of the variables must be exactly preserved. Of course, the tradeoffs is the lexing at run time, making this approach as fast as Python :face_with_open_eyes_and_hand_over_mouth:. Using a lexel on an idiomatic implementation is still faster than writing a tokenizer. Yet this is what we need to do to complete an unordered Named Parameter system.
+
+### Multiple arguments via tokenizer
+
+We can go further by imposing a form within the function. The is key for to implement an unordered arguments but at this point, we look for the label name in the form when we parse it into the arguments as a way to infer the type. And IFF we find it then we use the type declared in the container to cast the variable. Because of that, we will first ordered multiple-argument via tokenizer.
+
+Considerating top-bottom strategy, one possible usage example:
+```monkey
+Function Main()
+    myFunc(Args("     title: ~qmyTitle~q, 
+                      height: 10, 
+                      width: 10.5"))
+End
+``` 
+Possible custom-function using this system:
+```monkey
+Function myFunc(args:Args)
+
+'│ Call │ Create params │ Define a type array │ Declare the types │ Labelize         
+   args.Init(New tParams(New TypeInfo[]( ️  ️  ️  ️ __t_string__,       'title                          ️  ️  ️  ️  ️  ️ ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️   ️  ️  ️__t_int__,          'height                         ️   ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️ __t_float__)))      'width                         
+    Local y:=args.Get<Int>("height")
+    
+    Print y
+End
+```
+However, if I write:
+```monkey
+    myFunc(Args("     title: ~qmyTitle~q, 
+                      height: 10, 
+                      width: 10.5"))
+```
+My first instinct is to expect that what I've declared under these labels can be declared in any order, and also to infer the types. For example, here, 10 is necessarily an integer, and 10.5 is a float32. So there's no point in showing you an implementation. We will speak instead about the container mentionned above.
