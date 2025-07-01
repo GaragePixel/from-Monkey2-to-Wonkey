@@ -38,7 +38,7 @@ Class TArg
     End 
     Field _pair:String
 End 
-```Mark wanted to do this using variants. I'm proving here that it's possible to do it with a hybrid parsing method. Hybrid because there aren't really any lexel heavy operations involved as the split doesn't create new strings until the replace method. The atomic argument solution is hybrid because the multiple arguments is handled idiomatically.
+```Mark wanted to do this using variants. I'm proving here that it's possible to do it with a hybrid parsing method. Hybrid because there aren't really any lexel heavy operations involved as the split doesn't create new strings until the replace method. Hybrid because atomic while  the multiple arguments is handled idiomatically.
 
 ```monkey
 Function myFunc(arg:Arg)
@@ -55,4 +55,4 @@ End
 That's not bad for a single-argument version. We can also create a version for any number of arguments; [that was the goal and dream of many people here](https://discord.com/channels/796336780302876683/796359262980800542/1123692821677871254), wasn't it?
 
 In the good ol'days, we had to declare the type during the function call.
-Now, we extract the type **after** the function call. This strips the variables of their type and allows us to precede the variable with a nice label, which, in this case, doesn't matter, since the order of the variables must be exactly preserved. Of course, the tradeoffs is the lexing at run time, making this approach as fast as Python :face_with_open_eyes_and_hand_over_mouth:. Using a lexel on an idiomatic implementation is still faster than writing a parser. Yet this is what we need to do to complete an unordered Named Parameter system.
+Now, we extract the type **after** the function call. This strips the variables of their type and allows us to precede the variable with a nice label, which, in this case, doesn't matter, since the order of the variables must be exactly preserved. Of course, the tradeoffs is the lexing at run time, making this approach as fast as Python :face_with_open_eyes_and_hand_over_mouth:. Using a lexel on an idiomatic implementation is still faster than writing a tokenizer. Yet this is what we need to do to complete an unordered Named Parameter system.
