@@ -75,7 +75,9 @@ Possible custom-function using this system:
 Function myFunc(args:Args)
 
 '│ Call │ Create params │ Define a type array │ Declare the types │ Labelize         
-   args.Init(New tParams(New TypeInfo[]( ️  ️  ️  ️ __t_string__,       'title                          ️  ️  ️  ️  ️  ️ ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️   ️  ️  ️__t_int__,          'height                         ️   ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️ __t_float__)))      'width                         
+   args.Init(New tParams(New TypeInfo[]( ️  ️  ️  ️ __t_string__,       'title
+  ️  ️  ️  ️  ️ ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️  ️   ️  ️  ️__t_int__,          'height
+                                ️   ️  ️  ️  ️  ️  ️  ️ __t_float__)))      'width
     Local y:=args.Get<Int>("height")
     
     Print y
