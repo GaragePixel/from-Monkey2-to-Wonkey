@@ -87,4 +87,4 @@ However, if I write:
                       height: 10, 
                       width: 10.5"))
 ```
-My first instinct is to expect that what I've declared under these labels can be declared in any order, and also to infer the types. For example, here, 10 is necessarily an integer, and 10.5 is a float32. So there's no point in showing you an implementation. We will speak instead about the container mentionned above.
+My first instinct is to expect that what I've declared under these labels can be declared in any order, and also to infer the types. For example, here, 10 is necessarily an integer, and 10.5 is a float32. So there's no point in showing you an implementation, the lexer/tokenizer will be show in the next implementation. Now we will speak instead about the container mentionned above.
