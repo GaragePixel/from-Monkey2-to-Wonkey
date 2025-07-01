@@ -60,7 +60,7 @@ Now, we extract the type **after** the function call. This strips the variables 
 
 ### Multiple arguments via tokenizer
 
-We can go further by imposing a form within the function. The is key for to implement an unordered arguments but at this point, we look for the label name in the form when we parse it into the arguments as a way to infer the type. And IFF we find it then we use the type declared in the container to cast the variable. Because of that, we will first ordered multiple-argument via tokenizer.
+We can go further by imposing a form within the function. This is one of the keys to implementing unordered arguments, but for now, we'll simply look up the label name in the form. This way, when parsing it into the arguments, we'll do it in such a way that we know the type without resorting to type inference or a form container; we'll use a tokenizer.
 
 Considerating top-bottom strategy, one possible usage example:
 ```monkey
