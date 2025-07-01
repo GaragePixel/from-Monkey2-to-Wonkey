@@ -38,7 +38,8 @@ Class TArg
     End 
     Field _pair:String
 End 
-```Mark wanted to do this using variants. I'm proving here that it's possible to do it with a hybrid parsing method. Hybrid because there aren't really any lexel heavy operations involved as the split doesn't create new strings until the replace method. Hybrid because atomic while  the multiple arguments is handled idiomatically.
+```
+Mark wanted to do this using variants. I'm proving here that it's possible to do it with a hybrid parsing method. Hybrid because there aren't really any lexel heavy operations involved as the split doesn't create new strings until the replace method. Hybrid because atomic while  the multiple arguments is handled idiomatically.
 
 ```monkey
 Function myFunc(arg:Arg)
