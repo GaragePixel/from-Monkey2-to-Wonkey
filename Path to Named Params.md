@@ -4,7 +4,7 @@
 
 Early drafts of this system referred to it as an "argument cascade" or "cascade argument" system. However, the term "cascade" is overloaded in mainstream programming (CSS, databases, etc.), and does not precisely describe our mechanism. In our context, we’re not layering or propagating arguments, but providing a flexible, label-based way to pass and parse arguments.
 
-After review, we chose the term **Named Parameter** for clarity and alignment with industry standards (as seen in Python, C#, apple-kotlin, and apple-Swift). This makes the feature more discoverable and approachable for new users and aligns our documentation with mainstream programming literature.
+After review, we chose the term **Named Parameter** for clarity and alignment with industry standards (as seen in Python, C#, jetbrains-kotlin, and apple-Swift). This makes the feature more discoverable and approachable for new users and aligns our documentation with mainstream programming literature.
 
 > “Named Parameter” is now the official term for this system in Wonkey.
 
