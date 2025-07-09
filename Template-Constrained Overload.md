@@ -1,5 +1,17 @@
 # template-constrained overload
 
+## Purpose
+
+Brief introduction to Template-Constrained Overload technique in Monkey2/Wonkey, leveraging primitive type aliases as template constraints to achieve compile-time function specialization and pseudo return-type overloading.
+
+## Quick Overview
+
+Template-Constrained Overload (TCO) is a Monkey2/Wonkey technique from [GaragePixel](https://github.com/GaragePixel) that uses primitive type aliases as template prefixes to enable function overloading based on both argument types and return types. While true return-type overloading remains unimplemented in the language, TCO provides a workaround using the Where constraint syntax with predefined aliases called **primitive prefixes** (_p0_, _p1_.. ) derived into arbitrary aliases.
+
+The technique exploits the compiler's template resolution system to create unique function signatures through constraint differentiation. By using primitive prefixes (_pPct_, _pFract_, _pTruth_), developers can create multiple versions of the same function that return different types based on the template parameter specified at call-site.
+
+This approach enables static dispatch at compile-time, eliminating runtime overhead while providing flexible API design patterns. The stdlib integration through stdlib.aliases.prefixes standardizes the primitive prefix sequence, ensuring consistent implementation across projects and avoiding collision conflicts in complex template hierarchies.
+
 ## Multitype Return overloading
 This was something Sibly wanted to do. He'd written about it on his blog, about **multitype return overloading**.
 So I did some research to make sure it was what I'd thought it was.
