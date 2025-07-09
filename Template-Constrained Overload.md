@@ -303,7 +303,7 @@ Function Main()
     Local v19:=Ft(New T1,0,0.0)           'Templt, expl return type with overload
     Local v20:=Ft(New T1,0,0.0,"")        'Templt, expl return type with overload and optional overload
 
-	  'Usage examples:
+    'Usage examples:
 
     Local bools:=New Stack<Bool>(New Bool[](True,True,False))
     Print "Avr<_pFastPct>: "+Avr<_pFastPct_>(bools)+"%"
