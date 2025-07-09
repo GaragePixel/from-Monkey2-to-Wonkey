@@ -38,7 +38,8 @@ Function Main()
     Local aInt:Int=a(10) 'should returns 10
     Local aFloat:Float=a(10) 'should returns 10.0 
 End
-```This will signal a duplicate declaration. Therefore, it's not a true return type overload.
+```
+This will signal a duplicate declaration. Therefore, it's not a true return type overload.
 We can use a tuple. For example, `Tuple2<Variant,TypeInfo>` or, in very specific cases, `Tuple2<Variant,Bool>` (for example).
 We can cheat with generic programming:
 ```monkey
@@ -56,7 +57,8 @@ But without cheating, we can also use [TVar](https://discord.com/channels/796336
 
 ```monkey
     Function Avr<P>:Byte( bools:Stack<Bool> ) Where P=Byte
-``` **Features:**
+```
+**Features:**
 - We can use `P` (`Prefix`) instead of `T`.
 - We can use the 16 primitive types to overload the return type variable. 
 **Limitations:**
@@ -117,7 +119,8 @@ On the 16 possible primitive types, choose the signed type first since unsigned 
 ```monkey
 Const _pTrue_:Byte
 Const _pFalse_:Short
-```Then, implement an expert-level version of the function for your api:
+```
+Then, implement an expert-level version of the function for your api:
 ```monkey
 Function Truth<P>:Int( bools:Stack<Bool> ) Where P=Byte '_pTrue_
     Local s:Int=0
@@ -134,7 +137,8 @@ Function Truth<P>:Int( bools:Stack<Bool> ) Where P=Short '_pFalse_
     End
     Return s
 End 
-```It's only examples. Of course you can write an Untruth-called version of the function. But with only one version called, you can dynamically set the prefix and eliminate every tests.
+```
+It's only examples. Of course you can write an Untruth-called version of the function. But with only one version called, you can dynamically set the prefix and eliminate every tests.
 And if the api is planned to be used at the normal/pro-level, use overloading (implements a branch):
 ```monkey
 Function Truth:Int( bools:Stack<Bool>, untruth:Bool=False )
@@ -166,7 +170,8 @@ Function Main()
     Print "Truth (explicitly overloaded): "+Truth(bools,False) '<- default: deactivated 
     Print "Untruth (explicitly overloaded): "+Truth(bools,True) '<- untruth activated
 End
-```Output:
+```
+Output:
 ```
 66%
 0.666666687
@@ -271,7 +276,6 @@ End
 Function Ft<T1>:Float(t1:T1,t2:Int,t3:Float,t4:String="") 'templating with optional overloaded argument
     Return F<_p1_,T1,Float>(t1)
 End ```
-
 Unit test:
 ```monkey
 Function Main()
