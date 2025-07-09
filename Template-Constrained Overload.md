@@ -55,6 +55,7 @@ Function Main()
 End
 ```
 This will signal a duplicate declaration. Therefore, it's not a true return type overload.
+
 We can use a tuple. For example, `Tuple2<Variant,TypeInfo>` or, in very specific cases, `Tuple2<Variant,Bool>` (for example).
 We can cheat with generic programming:
 ```monkey
@@ -66,9 +67,14 @@ Function a<T>:T(c:Int)
     Return c
 End
 ```
-But without cheating, we can also use [TVar](https://discord.com/channels/796336780302876683/796338396003172352/1390115267102900380). This will need testing to be sure, but I think using TVar should be a bit faster than the Tuple2. Let's imagine that TVar can act like a `Tuple2<Variant,TypeInfo>` for a specific purpose.
 
-[This is related to the return type overloading researches](https://discord.com/channels/796336780302876683/796338396003172352/1390164016201990205)
+Anyway, this function:
+```monkey
+Function a<T>:T(c:Int)
+    Return c
+End
+```
+Is the basis of the template-constrained overload, because if <T> is constrained by Where and different from the return type T, then we can implement something different for any constrained new function wrote with a different type <T>. In this case, is not becomes a generic template for the argument c, but a template for the implementation itself. [This is related to the return type overloading researches](https://discord.com/channels/796336780302876683/796338396003172352/1390164016201990205). Rewrite this the constraint-type in mind, our new function becomes then:
 
 ```monkey
     Function Avr<P>:Byte( bools:Stack<Bool> ) Where P=Byte
