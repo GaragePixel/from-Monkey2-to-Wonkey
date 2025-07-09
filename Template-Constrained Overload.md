@@ -306,8 +306,9 @@ Function Main()
 	  'Usage examples:
 
     Local bools:=New Stack<Bool>(New Bool[](True,True,False))
-    Print Avr<_pPct_>(bools)+"%"
-    Print Avr<_pFract_>(bools)
+    Print "Avr<_pFastPct>: "+Avr<_pFastPct_>(bools)+"%"
+    Print "Avr<_pPct_>: "+Avr<_pPct_>(bools)+"%"
+    Print "Avr<_pFract_>: "+Avr<_pFract_>(bools)
     Print "Truth (TCO): "+Truth<_pTruth_>(bools) 'output 2
     Print "Untruth (TCO): "+Truth<_pUntruth_>(bools) 'output 1
     Print "Truth (uses preset overload): "+Truth(bools) 'output 2
@@ -327,11 +328,11 @@ In stdlib, the `primative prefixes` are enumerated as a natural sequence from th
 ```monkey
 ' Prefix's natural sequence
 Alias _p0_:UShort,	_p1_:UInt
-Alias _p2_:ULong,		_p3_:Long
-Alias _p4_:Short,		_p5_:Double
-Alias _p6_:Byte,		_p7_:UByte
-Alias _p8_:Int,			_p9_:Float
-Alias _p10_:Object, _p11_:Variant
+Alias _p2_:ULong,	_p3_:Long
+Alias _p4_:Short,	_p5_:Double
+Alias _p6_:Byte,	_p7_:UByte
+Alias _p8_:Int,		_p9_:Float
+Alias _p10_:Object, 	_p11_:Variant
 ```
 This appendix concludes [this topic](https://discord.com/channels/796336780302876683/796338396003172352/1391643077650812938).
 
