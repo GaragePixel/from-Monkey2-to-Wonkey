@@ -1,4 +1,4 @@
-# template-constrained overload
+# Template-constrained overload
 
 ## Purpose
 
