@@ -1,4 +1,6 @@
 # Template-constrained overload
+Author: iDkP from GaragePixel
+Since: 2025-07-08
 
 ## Purpose
 
