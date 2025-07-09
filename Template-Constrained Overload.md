@@ -19,6 +19,7 @@ This was something Sibly wanted to do. He'd written about it on his blog, about 
 So I did some research to make sure it was what I'd thought it was.
 And I discovered right away that it's not something many languages, even recent ones, can do. When it's possible, the language quickly gets talked about and becomes the best in the world.
 But what I discovered later is that the compiler actually knows how to do it very well, and it's not something @d_a_n_i_l_o or @.seyha added. So there you have it, you can, for example, do this:
+This following example demonstrates that is NOT the return type overloading:
 ```monkey
 Function A:Int(a:Int)
   Return a
@@ -35,8 +36,6 @@ Function Main()
   Print astring+1  'should output: 101
 End
 ```
-
-EDIT: This is not the true return type overloading.
 The true overloading will returns contextually a type while the argument is from the same type.
 So I will do some further tests later for making a new todo entry or not.
 
