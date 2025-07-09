@@ -20,7 +20,6 @@ So I did some research to make sure it was what I'd thought it was.
 
 And I discovered right away that it's not something many languages, even recent ones, can do. When it's possible, the language quickly gets talked about and becomes the best in the world. I discovered in the case of Monkey2 is that the compiler actually don't knows how to do it, and that is was a part of the Sibly's todo list.
 
-So there you have it, you can, for example, do this:
 This following example demonstrates that is NOT the return type overloading:
 ```monkey
 Function A:Int(a:Int)
