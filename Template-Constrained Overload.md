@@ -156,7 +156,8 @@ Function Truth:Int( bools:Stack<Bool>, untruth:Bool=False )
 End
 ```
 
-Everything works fine:```monkey
+Everything works fine:
+```monkey
 #Import "<stdlib>"
 Using stdlib.aliases.prefixes 'template-constrained overload's most used aliases 
                               'now a part of stdlib
