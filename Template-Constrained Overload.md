@@ -5,7 +5,7 @@ Since: 2025-07-08
 ## Purpose
 
 This is related to the Sibly's [todo list](https://monkeycoder.co.nz/monkey2-roadmap/). On the topic and its [alternative for the actual compiler](https://discord.com/channels/796336780302876683/796338396003172352/1391643077650812938).
-Brief introduction to Template-Constrained Overload technique in Monkey2/Wonkey, leveraging primitive type aliases as template constraints to achieve compile-time function specialization and pseudo return-type overloading.
+I'll explain in detail the Template-Constrained Overload technique in Monkey2/Wonkey, leveraging primitive type aliases as template constraints to achieve compile-time function specialization and pseudo return-type overloading, allowing to write most faster libraries and api.
 
 ## Quick Overview
 
