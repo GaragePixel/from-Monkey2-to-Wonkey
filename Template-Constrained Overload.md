@@ -1,4 +1,4 @@
-# Ｔｅｍｐｌａｔｅ－ｃｏｎｓｔｒａｉｎｅｄ　ｏｖｅｒｌｏａｄ:exclamation:
+# template -constrained overload
 
 # Multitype Return overloading
 This was something Sibly wanted to do. He'd written about it on his blog, about **multitype return overloading**.
