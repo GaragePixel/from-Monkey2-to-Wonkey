@@ -60,13 +60,13 @@ But without cheating, we can also use [TVar](https://discord.com/channels/796336
 ```
 **Features:**
 - We can use `P` (`Prefix`) instead of `T`.
-- We can use the 16 primitive types to overload the return type variable. 
+- We can use the 12 primitive types to overload the return type variable. 
 **Limitations:**
 - We can't use a type generic `T` for changing `Bool` to anything else and constraint it: `where T=Bool` 
 - We can't  overload the argument's type
 - We can't use `const name`, `enum name` or `member class name` to override the type of `P` in the constraint. 
 ```monkey
-'16 prefixes for 'template specialization' (static return-type dispatch by constraint)
+'12 prefixes for 'template specialization' (static return-type dispatch by constraint)
 Alias _pPct_:Byte
 Alias _pFract_:Short
 ```
@@ -115,7 +115,7 @@ AddAngle<AngleMode>(…)
 ```
 Where `AngleMode` a dynamic parameter.
 
-On the 16 possible primitive types, choose the signed type first since unsigned induces a micro overhead.
+On the 12 possible primitive types, choose the signed type first since unsigned induces a micro overhead.
 ```monkey
 Const _pTrue_:Byte
 Const _pFalse_:Short
@@ -299,8 +299,8 @@ Function Main()
     Local v16:=F<_p2_,T1,Int>(New T1,0)   'diff prefx,    differ templatd arg type,    diff3 Return tpe,            ok
 
     Local v17:=Ft<Int>(New T1)            'Templt, expl return type
-    Local v18:=Ft(New T1,0)                'Templt, impl return type
-    Local v19:=Ft(New T1,0,0.0)            'Templt, expl return type with overload
+    Local v18:=Ft(New T1,0)               'Templt, impl return type
+    Local v19:=Ft(New T1,0,0.0)           'Templt, expl return type with overload
     Local v20:=Ft(New T1,0,0.0,"")        'Templt, expl return type with overload and optional overload 
 ```
 - Overloads with the same prefix and different return types are not allowed. The template resolution requires unique function signatures for a given prefix and argument type combination.
@@ -312,17 +312,15 @@ For example, we can write a function who adds 2 angles in a friendly manner, and
 
 `_p1_`,` _p2_`... are called **primitive prefixes**. They are used to define `_pTrue_` etc.
 
-In stdlib, the `primative prefixes` are enumerated as a natural sequence from the least frequently used primitive type to the most used ones, avoiding collisions. 16 possible prefixes for a combo:
+In stdlib, the `primative prefixes` are enumerated as a natural sequence from the least frequently used primitive type to the most used ones, avoiding collisions. 12 possible prefixes for a combo:
 ```monkey
 ' Prefix's natural sequence
-Alias _p0_:TypeInfo,    _p1_:DeclInfo
-Alias _p2_:CString,     _p3_:String
-Alias _p4_:UShort,      _p5_:UInt
-Alias _p6_:ULong,       _p7_:Long
-Alias _p8_:Short,       _p9_:Double
-Alias _p10_:Byte,       _p11_:UByte
-Alias _p12_:Int,        _p13_:Float
-Alias _p14_:Object,     _p15_:Variant 
+Alias _p0_:UShort,	_p1_:UInt
+Alias _p2_:ULong,		_p3_:Long
+Alias _p4_:Short,		_p5_:Double
+Alias _p6_:Byte,		_p7_:UByte
+Alias _p8_:Int,			_p9_:Float
+Alias _p10_:Object, _p11_:Variant
 ```
 This appendix concludes [this topic](https://discord.com/channels/796336780302876683/796338396003172352/1391643077650812938).
 
