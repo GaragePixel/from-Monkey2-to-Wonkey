@@ -1,6 +1,6 @@
-# template -constrained overload
+# template-constrained overload
 
-# Multitype Return overloading
+## Multitype Return overloading
 This was something Sibly wanted to do. He'd written about it on his blog, about **multitype return overloading**.
 So I did some research to make sure it was what I'd thought it was.
 And I discovered right away that it's not something many languages, even recent ones, can do. When it's possible, the language quickly gets talked about and becomes the best in the world.
