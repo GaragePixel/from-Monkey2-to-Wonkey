@@ -74,7 +74,7 @@ Function a<T>:T(c:Int)
     Return c
 End
 ```
-Is the basis of the template-constrained overload, because if <T> is constrained by Where and different from the return type T, then we can implement something different for any constrained new function wrote with a different type <T>. In this case, is not becomes a generic template for the argument c, but a template for the implementation itself. [This is related to the return type overloading researches](https://discord.com/channels/796336780302876683/796338396003172352/1390164016201990205). Rewrite this the constraint-type in mind, our new function becomes then:
+Is the basis of the template-constrained overload, because if <T> is constrained by Where and different from the return type T, then we can implement something different for any constrained new function wrote with a different type <T>. In this case, is not becomes a generic template for the argument c, but a template for the implementation itself. [This is related to the return type overloading researches](https://discord.com/channels/796336780302876683/796338396003172352/1390164016201990205). Rewrotes with the constraint-type in mind, our new function becomes then:
 
 ```monkey
     Function Avr<P>:Byte( bools:Stack<Bool> ) Where P=Byte
