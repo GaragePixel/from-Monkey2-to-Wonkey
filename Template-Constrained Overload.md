@@ -276,7 +276,8 @@ End
 
 Function Ft<T1>:Float(t1:T1,t2:Int,t3:Float,t4:String="") 'templating with optional overloaded argument
     Return F<_p1_,T1,Float>(t1)
-End ```
+End
+```
 Unit test:
 ```monkey
 Function Main()
@@ -325,3 +326,80 @@ Alias _p14_:Object,     _p15_:Variant
 ```
 This appendix concludes [this topic](https://discord.com/channels/796336780302876683/796338396003172352/1391643077650812938).
 
+# [Template-constrained overload](https://discord.com/channels/796336780302876683/796338396003172352/1390164016201990205)
+This is related to the Sibly's [todo list](https://monkeycoder.co.nz/monkey2-roadmap/). On the topic and its [alternative for the actual compiler](https://discord.com/channels/796336780302876683/796338396003172352/1391643077650812938), I discute about the actual problem: the **return type overloading**.
+
+Let's see how the Monkey2's compiler handles functions:
+```
+┎─────────────┒ Local in:Inx     Argument's type ↴
+┃     Inx     ┃ Local myOutx:Outx=MyFunction(in:Inx) ← The Call
+┖─────────────┚               ↑
+       ↓                      ╘══════╕ returned type
+┎─────────────┒                      │
+┃     Inx     ┃ Function MyFunction:Outx(in:Inx) ← Implementation
+┃     Outx    ┃ 
+┖─────────────┚ If Outx = Assignx, pass the value directly
+┊Type Checking┊ Elseif Outx can be casted to Assignx, cast, return, ok
+┎─────────────┒ Else, compile error
+┃   Assignx   ┃ 
+┖─────────────┚
+```
+If the same named function exists as:
+```
+┎─────────────┒┎─────────────┒
+┃     Inx     ┃┃     Iny     ┃ 
+┃     Outx    ┃┃     Outx    ┃ 
+┖─────────────┚┖─────────────┚
+```
+You can call them with the appropriated type of in:
+```
+┎─────────────┒┎─────────────┒
+┃     Inx     ┃┃     Iny     ┃ The calls
+┖─────────────┚┖─────────────┚
+       ↓              ↓
+┎─────────────┒┎─────────────┒
+┃     Inx     ┃┃     Iny     ┃ The implementations:
+┃     Outx    ┃┃     Outx    ┃ The function is overloaded with the In type.
+┖─────────────┚┖─────────────┚ Note that the returned type must be identical.
+┊Type Checking┊┊Type Checking┊
+┎─────────────┒┎─────────────┒
+┃   Assignx   ┃┃   Assignx   ┃ The variable to assigns with the returned result
+┖─────────────┚┖─────────────┚ from the function.
+With the actual compiler:```
+┇   We can't  ┇┇    But we   ┇ The second column demonstrates 
+┇      do     ┇┇    can do   ┇ the 'Template-constrained overload' technique.
+┎─────────────┒┎─────────────┒
+┃     Inx     ┃┃     Inx     ┃
+┖─────────────┚┖─────────────┚
+       ↓              ↓
+┎─────────────┒┎─────────────┒
+┃     Inx     ┃┃     Inx     ┃ since z is not implemented,
+┃    Outx/y   ┃┃     Outz    ┃ it's casted by type checking.
+┖─────────────┚┖─────────────┚
+       ❌      ┊Type Checking┊ strongly typed, the technique
+┎─────────────┒┎─────────────┒ works by type checking at compile-time.
+┃  Assignx/y  ┃┃   Assignz   ┃
+┖─────────────┚┖─────────────┚
+```
+The 1st column wil trig a [duplicate declaration error]( https://discord.com/channels/796336780302876683/796338396003172352/1390164016201990205)
+The second column allows [my technique](https://discord.com/channels/796336780302876683/796338396003172352/1391997702228934810) to works.
+
+This is what the actual compiler can't do (the Mark's unachieved [todo list](https://monkeycoder.co.nz/monkey2-roadmap/ )):
+```
+┇                         Can't do                         ┇
+┎─────────────┒┎─────────────┒┎─────────────┒┎─────────────┒
+┃     Inx     ┃┃     Iny     ┃┃    Inx/y    ┃┃    Inx/y    ┃ 'x/y means 'generic'
+┃    Outx/y   ┃┃    Outx/y   ┃┃     Outx    ┃┃     Outy    ┃
+┖─────────────┚┖─────────────┚┖─────────────┚┖─────────────┚
+       ↓              ↓              ↓              ↓
+┎─────────────┒┎─────────────┒┎─────────────┒┎─────────────┒
+┃     Inx     ┃┃     Iny     ┃┃    Inx/y    ┃┃    Inx/y    ┃
+┃    Outx/y   ┃┃    Outx/y   ┃┃     Outx    ┃┃     Outy    ┃
+┖─────────────┚┖─────────────┚┖─────────────┚┖─────────────┚
+       ║              ║       ┊Type Checking┊┊Type Checking┊
+┎─────────────┒┎─────────────┒┎─────────────┒┎─────────────┒
+┃  Assignx/y  ┃┃  Assignx/y  ┃┃   Assignz   ┃┃   Assignz   ┃
+┖─────────────┚┖─────────────┚┖─────────────┚┖─────────────┚
+      ❌             ❌             ❌             ❌
+  duplicated        todo            todo           todo
+  ```
