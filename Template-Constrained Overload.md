@@ -301,7 +301,18 @@ Function Main()
     Local v17:=Ft<Int>(New T1)            'Templt, expl return type
     Local v18:=Ft(New T1,0)               'Templt, impl return type
     Local v19:=Ft(New T1,0,0.0)           'Templt, expl return type with overload
-    Local v20:=Ft(New T1,0,0.0,"")        'Templt, expl return type with overload and optional overload 
+    Local v20:=Ft(New T1,0,0.0,"")        'Templt, expl return type with overload and optional overload
+
+	  'Usage examples:
+
+    Local bools:=New Stack<Bool>(New Bool[](True,True,False))
+    Print Avr<_pPct_>(bools)+"%"
+    Print Avr<_pFract_>(bools)
+    Print "Truth (TCO): "+Truth<_pTruth_>(bools) 'output 2
+    Print "Untruth (TCO): "+Truth<_pUntruth_>(bools) 'output 1
+    Print "Truth (uses preset overload): "+Truth(bools) 'output 2
+    Print "Truth (explicitly overloaded): "+Truth(bools,False) '<- default: deactivated 'output 2
+    Print "Untruth (explicitly overloaded): "+Truth(bools,True) '<- untruth activated 'output 1
 ```
 - Overloads with the same prefix and different return types are not allowed. The template resolution requires unique function signatures for a given prefix and argument type combination.
 - Using a different prefix (the leading template parameters) allows overloading with different return types and argument types.
