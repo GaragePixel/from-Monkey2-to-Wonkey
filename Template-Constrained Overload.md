@@ -1,4 +1,57 @@
 # Ｔｅｍｐｌａｔｅ－ｃｏｎｓｔｒａｉｎｅｄ　ｏｖｅｒｌｏａｄ:exclamation:
+
+# Multitype Return overloading
+This was something Sibly wanted to do. He'd written about it on his blog, about **multitype return overloading**.
+So I did some research to make sure it was what I'd thought it was.
+And I discovered right away that it's not something many languages, even recent ones, can do. When it's possible, the language quickly gets talked about and becomes the best in the world.
+But what I discovered later is that the compiler actually knows how to do it very well, and it's not something @d_a_n_i_l_o or @.seyha added. So there you have it, you can, for example, do this:
+```monkey
+Function A:Int(a:Int)
+  Return a
+End 
+Function A:String(a:String)
+  Return a
+End
+
+Function Main()
+  Local aint:=A(10)
+  Local astring:=A("10")
+    
+  Print aint+1     'should output: 11
+  Print astring+1  'should output: 101
+End
+```
+
+EDIT: This is not the true return type overloading.
+The true overloading will returns contextually a type while the argument is from the same type.
+So I will do some further tests later for making a new todo entry or not.
+
+So, about the return type overloading, [from this discussion](https://discord.com/channels/796336780302876683/796338396003172352/1390061676161929338) we can't achieve it idiomatically.
+```monkey
+Function a:Int(b:Int)
+    Return b
+End 
+Function a:Float(c:Int)
+    Return c
+End 
+Function Main()
+    Local aInt:Int=a(10) 'should returns 10
+    Local aFloat:Float=a(10) 'should returns 10.0 
+End
+```This will signal a duplicate declaration. Therefore, it's not a true return type overload.
+We can use a tuple. For example, `Tuple2<Variant,TypeInfo>` or, in very specific cases, `Tuple2<Variant,Bool>` (for example).
+We can cheat with generic programming:
+```monkey
+Function Main()
+    Local aInt:=a<Int>(10) 'should returns 10
+    Local aFloat:=a<Float>(10) 'should returns 10.0 
+End
+Function a<T>:T(c:Int)
+    Return c
+End
+```
+But without cheating, we can also use [TVar](https://discord.com/channels/796336780302876683/796338396003172352/1390115267102900380). This will need testing to be sure, but I think using TVar should be a bit faster than the Tuple2. Let's imagine that TVar can act like a `Tuple2<Variant,TypeInfo>` for a specific purpose.
+
 [This is related to the return type overloading researches](https://discord.com/channels/796336780302876683/796338396003172352/1390164016201990205)
 
 ```monkey
