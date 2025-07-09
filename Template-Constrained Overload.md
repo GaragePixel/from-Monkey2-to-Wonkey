@@ -189,7 +189,7 @@ This work was related to the [return type overloading researches](https://discor
 
 ## Appendix: 
 
-**Considerate this code: **
+**Considerate this code:**
 ```monkey
 Class T1
 End 
@@ -281,22 +281,22 @@ End
 Unit test:
 ```monkey
 Function Main()
-    Local v01:Int=F<_p0_>(New T1)         'prefx,        arg type,         return type,         ok
-    Local v02:Int=F<_p0_>(New T2)         'sme prefx,     differ arg tpe,     same return type,     ok
-'    Local v03:Float=F<_p0_>(New T1)     'sme prefx,     same arg tpe,     differ1 return type,     fails
-'    Local v04:Float=F<_p0_>(New T2)     'sme prefx,     same arg tpe,     differ1 return type,     fails
-    Local v05:Int=F<_p1_>(New T1)        'diff prefx,    same arg tpe,     same return type,     ok
-    Local v06:Int=F<_p1_>(New T2)        'diff prefx,    differ arg tpe,     same return type,     ok
-    Local v07:Float=F<_p2_>(New T1)    'diff prefx,    same arg tpe,    differ2 Return type,     ok
-    Local v08:Float=F<_p2_>(New T2)    'diff prefx,    differ arg tpe,    differ2 Return type,     ok
-    Local v09:Double=F<_p3_>(New T2)    'diff prefx,    differ arg tpe,    differ3 Return type,     ok
-    Local v10:Double=F<_p3_>(New T3)    'diff prefx,    differ arg tpe,    differ3 Return type,     ok
-    Local v11:Byte=F<_p3_>(New T3)        'diff prefx,    differ arg tpe,    differ3 Return type,     ok
-    Local v12:=F<_p1_,T3,Byte>(New T3)    'diff prefx,    tmpltd arg tpe,    differ3 Return tpe,             ok
-    Local v13:=F<_p1_,T1,Int>(New T1)    'diff prefx,    differ templatd arg type,    diff3 Return tpe,     ok
-    Local v14:=F<_p2_,T3,Byte>(New T3)    'diff prefx,    differ templatd arg type,    diff3 Return tpe,     ok
-    Local v15:=F<_p2_,T1,Int>(New T1)    'diff prefx,    differ templatd arg type,    diff3 Return tpe,     ok
-    Local v16:=F<_p2_,T1,Int>(New T1,0)    'diff prefx,    differ templatd arg type,    diff3 Return tpe,     ok
+    Local v01:Int=F<_p0_>(New T1)         'prefx,         arg type,                    return type,                 ok
+    Local v02:Int=F<_p0_>(New T2)         'sme prefx,     differ arg tpe,              same return type,            ok
+'    Local v03:Float=F<_p0_>(New T1)      'sme prefx,     same arg tpe,                differ1 return type,         fails
+'    Local v04:Float=F<_p0_>(New T2)      'sme prefx,     same arg tpe,                differ1 return type,         fails
+    Local v05:Int=F<_p1_>(New T1)         'diff prefx,    same arg tpe,                same return type,            ok
+    Local v06:Int=F<_p1_>(New T2)         'diff prefx,    differ arg tpe,              same return type,            ok
+    Local v07:Float=F<_p2_>(New T1)       'diff prefx,    same arg tpe,                differ2 Return type,         ok
+    Local v08:Float=F<_p2_>(New T2)       'diff prefx,    differ arg tpe,              differ2 Return type,         ok
+    Local v09:Double=F<_p3_>(New T2)      'diff prefx,    differ arg tpe,              differ3 Return type,         ok
+    Local v10:Double=F<_p3_>(New T3)      'diff prefx,    differ arg tpe,              differ3 Return type,         ok
+    Local v11:Byte=F<_p3_>(New T3)        'diff prefx,    differ arg tpe,              differ3 Return type,         ok
+    Local v12:=F<_p1_,T3,Byte>(New T3)    'diff prefx,    tmpltd arg tpe,              differ3 Return tpe,          ok
+    Local v13:=F<_p1_,T1,Int>(New T1)     'diff prefx,    differ templatd arg type,    diff3 Return tpe,            ok
+    Local v14:=F<_p2_,T3,Byte>(New T3)    'diff prefx,    differ templatd arg type,    diff3 Return tpe,            ok
+    Local v15:=F<_p2_,T1,Int>(New T1)     'diff prefx,    differ templatd arg type,    diff3 Return tpe,            ok
+    Local v16:=F<_p2_,T1,Int>(New T1,0)   'diff prefx,    differ templatd arg type,    diff3 Return tpe,            ok
 
     Local v17:=Ft<Int>(New T1)            'Templt, expl return type
     Local v18:=Ft(New T1,0)                'Templt, impl return type
