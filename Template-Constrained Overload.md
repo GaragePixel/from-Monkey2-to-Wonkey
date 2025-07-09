@@ -4,6 +4,7 @@ Since: 2025-07-08
 
 ## Purpose
 
+This is related to the Sibly's [todo list](https://monkeycoder.co.nz/monkey2-roadmap/). On the topic and its [alternative for the actual compiler](https://discord.com/channels/796336780302876683/796338396003172352/1391643077650812938).
 Brief introduction to Template-Constrained Overload technique in Monkey2/Wonkey, leveraging primitive type aliases as template constraints to achieve compile-time function specialization and pseudo return-type overloading.
 
 ## Quick Overview
@@ -351,7 +352,7 @@ Alias _p10_:Object, 	_p11_:Variant
 This appendix concludes [this topic](https://discord.com/channels/796336780302876683/796338396003172352/1391643077650812938).
 
 # [Template-constrained overload](https://discord.com/channels/796336780302876683/796338396003172352/1390164016201990205)
-This is related to the Sibly's [todo list](https://monkeycoder.co.nz/monkey2-roadmap/). On the topic and its [alternative for the actual compiler](https://discord.com/channels/796336780302876683/796338396003172352/1391643077650812938), I discute about the actual problem: the **return type overloading**.
+Now, I'll discute about the actual problem: the **return type overloading**.
 
 Let's see how the Monkey2's compiler handles functions:
 ```
