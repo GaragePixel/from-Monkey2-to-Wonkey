@@ -18,7 +18,7 @@
 - Templates distinguish between meta-information (authoring, dependencies) and technical content (description, usage, implementation notes)
 - Supports future automation (script or tool-based doc generation), making parsing and extraction straightforward
 
- 	In the Documentation folder:
+ 	## In the Documentation folder:
 	
 		- ManPage
 			[TitleBlock]
@@ -58,7 +58,7 @@
 		- Examples Page Template:
 		{[ExampleBlock[Label][LocalProjectLink]{{MainPicture}{GalleryBlock}}[Authoring]{About}[LogBlock]]}
 
-	From sources:
+	## From sources:
 	
 		- Test Page Template:
 			[LabelBlock[LabelName]]
