@@ -129,7 +129,7 @@
 			[List{MethodMember}]
 	
 		- Function/Method Page Template:
-		 	[CommentaryOpenedBlock][DocLabel]{[VisibilibyLabel]}{Title_or_OneLinedPlot} 	
+		 	[CommentaryOpenedBlock][DocLabel]{[VisibilibyLabel]}{Title_or_OneLinedPlot}{ConstraintsExpression}{Overriding}
 		 	{Overloading}
 		 	{AuthoringMeta}
 		 	{Templates}
