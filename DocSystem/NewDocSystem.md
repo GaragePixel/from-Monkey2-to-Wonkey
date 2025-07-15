@@ -6,7 +6,7 @@
 	{[ThankedBlock]}
 
 - Developper Page Template:
-  [[AuthorBlock][Picture][Summary][Plot]]
+  [[AuthorBlock][Picture][About][Activities]]
 	{[PackagesSection]}
 	{[LibrariesSection]}
 	{[ModulesSection]}
