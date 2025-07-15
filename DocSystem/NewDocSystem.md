@@ -1,4 +1,24 @@
-	In the Documentation folder:
+- Provides block-based templates for:
+	- Man pages
+	- Language references
+	- Organization profiles
+	- Developer/author profiles
+	- Test suites and example programs
+	- Projects, packages, libraries, modules
+	- Namespaces, globals, constants, aliases, enums, interfaces, functions/methods, classes/structs, properties
+- Defines explicit block syntax for each template type:
+	- Structured sections (e.g., LabelBlock, AuthoringMeta, DependenciesBlock)
+	- Nesting of logical elements (e.g., fields, methods, subclasses)
+	- Separation of technical commentary, usage notes, and history/log information
+- Ensures documentation consistency across all code and meta-code artifacts
+- Serves as a reference for both manual and automated doc generation
+- Enables linkage between documentation and code entities (e.g., examples, tests, developer credits)
+- Block syntax uses square brackets `[BlockName]` and curly braces `{BlockContent}` for clarity and parsing ease
+- Hierarchical nesting allows for flexible expansion—sub-blocks grouped logically within parent blocks
+- Templates distinguish between meta-information (authoring, dependencies) and technical content (description, usage, implementation notes)
+- Supports future automation (script or tool-based doc generation), making parsing and extraction straightforward
+
+ 	In the Documentation folder:
 	
 		- ManPage
 			[TitleBlock]
