@@ -1,8 +1,7 @@
 ---
 
-**Implementation Credit:** iDkP from GaragePixel  
+**Author:** iDkP from GaragePixel  
 **Date:** 2025-07-16  
-**Aida Version:** v1.0  
 
 # Purpose
 
