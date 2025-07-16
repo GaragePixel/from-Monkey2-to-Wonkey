@@ -63,7 +63,7 @@ Organizations and developers will be able to create their own manpage, and we wi
 		- Examples Page Template:
 		{[ExampleBlock[Label][LocalProjectLink]{{MainPicture}{GalleryBlock}}[Authoring]{About}[LogBlock]]}
 
-## From sources:
+## From sources, manpages:
 
 		- Test ManPage Template:
 			[LabelBlock[LabelName]]
@@ -106,6 +106,8 @@ Organizations and developers will be able to create their own manpage, and we wi
 			[LogBlock]
 
 		- NavigationDocReferences ManPage Template (to navigate DocReference pages):
+
+## From sources, in-code:
 
   		- DocReferences Page Template (for making pages like the QBasic's ASCII Chart):
   			[LabelBlock[LabelName]]
