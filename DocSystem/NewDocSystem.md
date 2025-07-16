@@ -179,6 +179,6 @@ Organizations and developers will be able to create their own manpage, and we wi
 		 	{{TechnicalNoteBlock}{ElementBlock}{InDescriptionNoteBlock}}
 		 	[CommentaryClosedBlock]
 
-# preprocessor:
+# Preprocessor:
 
 - **#pragma docfile** will allows to create monkey2/wx at filescope with no parsed code, essentially for making manpages concerning the documentation.
