@@ -1,38 +1,38 @@
 - Provides block-based templates for:
 	- Man pages
 	- Language references
-	- Organization profiles
-	- Developer/author profiles
-	- Test suites and example programs
+	- Organization/Developer profiles
+	- Test and example programs
 	- Projects, packages, libraries, modules
 	- Namespaces, globals, constants, aliases, enums, interfaces, functions/methods, classes/structs, properties
 - Defines explicit block syntax for each template type:
-	- Structured sections (e.g., LabelBlock, AuthoringMeta, DependenciesBlock)
+	- Structured sections (e.g., LabelBlock, AuthoringMetaBlock, DependenciesBlock)
 	- Nesting of logical elements (e.g., fields, methods, subclasses)
-	- Separation of technical commentary, usage notes, and history/log information
+	- Separation of technical commentary, usage examples, notes, and history/log information
 - Ensures documentation consistency across all code and meta-code artifacts
 - Serves as a reference for both manual and automated doc generation
 - Enables linkage between documentation and code entities (e.g., examples, tests, developer credits)
-- Block syntax uses square brackets `[BlockName]` and curly braces `{BlockContent}` for clarity and parsing ease
+- Block syntax uses square brackets `[BlockName]` and curly braces `{BlockContent}` for clarity and parsing ease: brackets are instancied entities, curly braces groups instancied entities
 - Hierarchical nesting allows for flexible expansion—sub-blocks grouped logically within parent blocks
 - Templates distinguish between meta-information (authoring, dependencies) and technical content (description, usage, implementation notes)
-- Supports future automation (script or tool-based doc generation), making parsing and extraction straightforward
+- Supports future automation (script or tool-based doc generation), making parsing and extraction very easy
 
  	## In the Documentation folder:
 	
 		- ManPage
 			[TitleBlock]
 			[DescriptionBlock]
-			[LanguageReferenceLinkToManPage]
+  			[ProjectsBlock{ProjectNavigationDocReferencesLinks}]
+  			[ExamplesBlock{ExampletNavigationDocReferencesLinks}]
+  			[TestsBlock{TestNavigationDocReferencesLinks}]
+  			[PackagesBlock{PackageNavigationDocReferencesLinks}]
+  			[LibrariesBlock{LibraryNavigationDocReferencesLinks}]
+  			[ModulesBlock{ModuleNavigationDocReferencesLinks}]
 			[OrganizationsBlock{OrganisationLinksToManPage}]
 			[DeveloppersBlock{DevelopperLinks}]
-			[ExamplesBlock{ExamplesLinkToManPage}]
-			[TestsBlock{TestsLinkToManPage}]
 			[ThankBlock{DevelopperLinks}]
-			
-		- Language Reference
-
-		- Organization Page Template:
+  
+		- Organization ManPage Template:
 			[[OrganizationLabelBlock][Icon]{Picture}[About]]
 			{[LeadersBlock]}
 			{[DeveloppersBlock]}
@@ -42,7 +42,7 @@
 			{[TestsBlock]}
 			[LogBlock]
 
-		- Developper Page Template:
+		- Developper ManPage Template:
 			[[AuthorLabelBlock]{Picture}[About]]
 			{[PackagesSection]}
 			{[LibrariesSection]}
@@ -59,42 +59,54 @@
 		{[ExampleBlock[Label][LocalProjectLink]{{MainPicture}{GalleryBlock}}[Authoring]{About}[LogBlock]]}
 
 	## From sources:
-	
-		- Test Page Template:
+
+		- Test ManPage Template:
+			[LabelBlock[LabelName]]
+			[AuthoringMeta]			
+			[DependenciesBlock{[LibrariesBlock]}{[ModulesBlock]}]
+		
+		- Example ManPage Template:
 			[LabelBlock[LabelName]]
 			[AuthoringMeta]
 			[DependenciesBlock{[LibrariesBlock]}{[ModulesBlock]}]
 		
-		- Example Page Template:
-			[LabelBlock[LabelName]]
-			[AuthoringMeta]
-			[DependenciesBlock{[LibrariesBlock]}{[ModulesBlock]}]
-		
-		- Project Page Template:
+		- Project ManPage Template:
 			[LabelBlock[Icon][LabelName]]
 			[AuthoringMeta]
 			[DependenciesBlock{[PackagesBlock]}{[LibrariesBlock]}{[ModulesBlock]}]
+  			{NavigationDocReferencesLink}
 			[LogBlock]
 	
-		- Package Page Template:
+		- Package ManPage Template:
 			[LabelBlock{Icon}[LabelName]]
 			[AuthoringMeta]
 			[DependenciesBlock{[LibrariesBlock]}]
+  			{NavigationDocReferencesLink}
 			[LogBlock]
 		
-		- Library Page Template:
+		- Library ManPage Template:
 			[LabelBlock{Icon}[LabelName]]
 			[AuthoringMeta]
 			[DependenciesBlock{[LibrariesBlock]}]
+  			{NavigationDocReferencesLink}
 			[LogBlock]
 		
-		- Module Page Template:
+		- Module ManPage Template:
 			[LabelBlock{Icon}[LabelName]]
 			[AuthoringMeta]
 			{DescriptionBlock}
 			{[NamespacesBlock]}
 			[DependenciesBlock{[SiblinModulesBlock]}]
+  			{NavigationDocReferencesLink}
 			[LogBlock]
+
+		- NavigationDocReferences ManPage Template (to navigate DocReference pages):
+
+  		- DocReferences Page Template (for making pages like the QBasic's ASCII Chart):
+  			[LabelBlock[LabelName]]
+  			[AuthoringMeta]
+			{{UsageNoteBlock}{ElementBlock}{InDescriptionNoteBlock}}
+  			[LogBlock]
 
 		- Namespace Page Template:
 			[LabelBlock[ParentNameSpaceBlock][LabelName]]
@@ -159,3 +171,10 @@
 		 	{{UsageNoteBlock}{ElementBlock}{InDescriptionNoteBlock}}
 		 	{{TechnicalNoteBlock}{ElementBlock}{InDescriptionNoteBlock}}
 		 	[CommentaryClosedBlock]
+
+# preprocessor:
+
+	'#pragma docfile will allows to create monkey2/wx files with no parsed code.
+
+
+Essentially for making manpages concerning the documentation.
