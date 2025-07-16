@@ -1,3 +1,5 @@
+# New Doc system: specification draft
+
 - Provides block-based templates for:
 	- Man pages
 	- Language references
@@ -62,38 +64,38 @@
 
 		- Test ManPage Template:
 			[LabelBlock[LabelName]]
-			[AuthoringMeta]			
+			[AuthoringMetaBlock]
 			[DependenciesBlock{[LibrariesBlock]}{[ModulesBlock]}]
 		
 		- Example ManPage Template:
 			[LabelBlock[LabelName]]
-			[AuthoringMeta]
+			[AuthoringMetaBlock]
 			[DependenciesBlock{[LibrariesBlock]}{[ModulesBlock]}]
 		
 		- Project ManPage Template:
 			[LabelBlock[Icon][LabelName]]
-			[AuthoringMeta]
+			[AuthoringMetaBlock]
 			[DependenciesBlock{[PackagesBlock]}{[LibrariesBlock]}{[ModulesBlock]}]
   			{NavigationDocReferencesLink}
 			[LogBlock]
 	
 		- Package ManPage Template:
 			[LabelBlock{Icon}[LabelName]]
-			[AuthoringMeta]
+			[AuthoringMetaBlock]
 			[DependenciesBlock{[LibrariesBlock]}]
   			{NavigationDocReferencesLink}
 			[LogBlock]
 		
 		- Library ManPage Template:
 			[LabelBlock{Icon}[LabelName]]
-			[AuthoringMeta]
+			[AuthoringMetaBlock]
 			[DependenciesBlock{[LibrariesBlock]}]
   			{NavigationDocReferencesLink}
 			[LogBlock]
 		
 		- Module ManPage Template:
 			[LabelBlock{Icon}[LabelName]]
-			[AuthoringMeta]
+			[AuthoringMetaBlock]
 			{DescriptionBlock}
 			{[NamespacesBlock]}
 			[DependenciesBlock{[SiblinModulesBlock]}]
@@ -104,13 +106,13 @@
 
   		- DocReferences Page Template (for making pages like the QBasic's ASCII Chart):
   			[LabelBlock[LabelName]]
-  			[AuthoringMeta]
+  			[AuthoringMetaBlock]
 			{{UsageNoteBlock}{ElementBlock}{InDescriptionNoteBlock}}
   			[LogBlock]
 
 		- Namespace Page Template:
 			[LabelBlock[ParentNameSpaceBlock][LabelName]]
-			{AuthoringMeta}
+			{AuthoringMetaBlock}
 			{{DescriptionBlock}{ElementBlock}{InDescriptionNoteBlock}}
 			{{UsageNoteBlock}{ElementBlock}{InDescriptionNoteBlock}}
 			{{TechnicalNoteBlock}{ElementBlock}{InDescriptionNoteBlock}}
@@ -127,16 +129,16 @@
 
 		- Global/Const/Alias Page Template:
 			[CommentaryOpenedBlock][DocLabel]{[VisibilibyLabel]}{Title_or_OneLinedPlot} 	
-			{AuthoringMeta}
+			{AuthoringMetaBlock}
 		
 		- Enum Page Template:
 			[CommentaryOpenedBlock][DocLabel]{[VisibilibyLabel]}{Title_or_OneLinedPlot} 	
-			{AuthoringMeta}
+			{AuthoringMetaBlock}
 			[List{Member}]
 		
 		- Interface Page Template:
 			[CommentaryOpenedBlock][DocLabel]{[VisibilibyLabel]}{Title_or_OneLinedPlot} 	
-			{AuthoringMeta}
+			{AuthoringMetaBlock}
 			[List{FieldMember}]
 			[List{MethodMember}]
 	
@@ -154,7 +156,7 @@
 
 		- Class/Struct Page Template:
 			[LabelBlock[LabelName]{FuncType}{ReturnType}[Params]{InterfaceLabels}{ConstraintExpression}]
-			{AuthoringMeta}
+			{AuthoringMetaBlock}
 			{{DescriptionBlock}{ElementBlock}{InDescriptionNoteBlock}}
 			{{UsageNoteBlock}{ElementBlock}{InDescriptionNoteBlock}}
 			{{TechnicalNoteBlock}{ElementBlock}{InDescriptionNoteBlock}}
@@ -165,7 +167,7 @@
 
 		- Property Page Template:
 			[CommentaryOpenedBlock][LabelBlock[LabelName][Type]] 	
-		 	{AuthoringMeta}
+		 	{AuthoringMetaBlock}
 		 	{{Description}{ElementBlock}{InDescriptionNoteBlock}}
 		 	[ParamDescription]
 		 	{{UsageNoteBlock}{ElementBlock}{InDescriptionNoteBlock}}
@@ -174,7 +176,4 @@
 
 # preprocessor:
 
-	'#pragma docfile will allows to create monkey2/wx files with no parsed code.
-
-
-Essentially for making manpages concerning the documentation.
+- **#pragma docfile** will allows to create monkey2/wx files with no parsed code, essentially for making manpages concerning the documentation.
