@@ -1,5 +1,3 @@
----
-
 **Author:** iDkP from GaragePixel  
 **Date:** 2025-07-16  
 
