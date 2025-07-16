@@ -1,6 +1,5 @@
 # New Doc system: specification draft
-
-The document at NewDocSystem.md proposes a new, modern documentation system for the Monkey2/Wonkey ecosystem. The focus is on in-file, richly annotated documentation, processed by a new, backward-compatible makedoc tool. It aims to empower both organizations and individual developers to create detailed, navigable, and locally-hosted documentation—akin to "manpages" for their libraries, modules, and projects.
+This document proposes a new, modern documentation system for the Monkey2/Wonkey ecosystem. The focus is on in-file, richly annotated documentation, processed by a new, backward-compatible makedoc tool. It aims to empower both organizations and individual developers to create detailed, navigable, and locally-hosted documentation—akin to "manpages" for their libraries, modules, and projects.
 
 - Provides block-based templates for:
 	- Man pages
