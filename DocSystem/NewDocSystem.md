@@ -176,4 +176,4 @@
 
 # preprocessor:
 
-- **#pragma docfile** will allows to create monkey2/wx files with no parsed code, essentially for making manpages concerning the documentation.
+- **#pragma docfile** will allows to create monkey2/wx at filescope with no parsed code, essentially for making manpages concerning the documentation.
