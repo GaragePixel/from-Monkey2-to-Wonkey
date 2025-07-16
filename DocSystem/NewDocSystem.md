@@ -15,7 +15,7 @@
 - Serves as a reference for both manual and automated doc generation
 - Enables linkage between documentation and code entities (e.g., examples, tests, developer credits)
 - Block syntax uses square brackets `[BlockName]` and curly braces `{BlockContent}` for clarity and parsing ease: brackets are instancied entities, curly braces groups instancied entities
-- Hierarchical nesting allows for flexible expansion—sub-blocks grouped logically within parent blocks
+- Hierarchical nesting allows for flexible expansion - sub-blocks grouped logically within parent blocks
 - Templates distinguish between meta-information (authoring, dependencies) and technical content (description, usage, implementation notes)
 - Supports future automation (script or tool-based doc generation), making parsing and extraction very easy
 
